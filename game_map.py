@@ -10,6 +10,7 @@ import tile_types
 
 if TYPE_CHECKING:
     from entity import Entity
+    from engine import Engine
 
 
 class GameMap:
@@ -25,7 +26,7 @@ class GameMap:
         self.explored = np.full((width, height), fill_value=False, order="F") # Tiles the player has seen before
 
     @property
-    def actors(self) -> Iterato[Actor]:
+    def actors(self) -> Iterator[Actor]:
         """Iterate over this map's living actors."""
         yield from (
             entity

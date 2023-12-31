@@ -26,9 +26,7 @@ class BaseAI(Action, BaseComponent):
         # Copy the walkable array.
         cost = np.array(self.entity.gamemap.tiles["walkable"], dtype=np.int8)
 
-        print(f'cost array: {cost}')
         for entity in self.entity.gamemap.entities:
-            print(f'cost of the entity at {entity.x}, {entity.y} : {cost[entity.x, entity.y]}')
             # Check that an entity blocks movement and the cost isn't zero (blocking.)
             if entity.blocks_movement and cost[entity.x, entity.y]:
                 # Add to the cost of a blocked position.

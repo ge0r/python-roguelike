@@ -7,7 +7,7 @@ import exceptions
 
 if TYPE_CHECKING:
     from engine import Engine
-    from entity import Actor, Entity
+    from entity import Actor, Entity, Item
 
 
 class Action:
@@ -73,13 +73,19 @@ class ItemAction(Action):
         return self.engine.game_map.get_actor_at_location(*self.target_xy)
 
     def perform(self) -> None:
-        """Invoke the item's ability, this action will be given to provied context."""
-        self.item.consumable.active(self)
+        """Invoke the item's ability, this action will be given to provided context."""
+        self.item.consumable.activate(self)
+
+
+class DropItem(ItemAction):
+    def perform(self) -> None:
+        self.entity.inventory.drop(self.item)
 
 
 class WaitAction(Action):
     def perform(self) -> None:
         pass
+
 
 class ActionWithDirection(Action):
     def __init__(self, entity: Actor, dx: int, dy: int):

@@ -41,7 +41,7 @@ fireball_scroll = Item(
     char="~",
     color=(255, 0, 0),
     name="Fireball Scroll",
-    consumable=consumable.FireballDamageConsumable(damage=12, radius=3),
+    consumable=consumable.FireballDamageConsumable(damage=12, radius=4),
 )
 health_potion = Item(
     char="!",

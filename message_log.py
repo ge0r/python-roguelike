@@ -29,7 +29,7 @@ class MessageLog:
     ) -> None:
         """Add a message to this this log.
         `text` is the message text, `fg` is the text color.
-        If `stack` is True then the message can stacak wti tha a previous message
+        If `stack` is True then the message can stack with a previous message
         of the same text.
         """
 

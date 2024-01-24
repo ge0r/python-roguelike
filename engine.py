@@ -6,34 +6,21 @@ from tcod.console import Console
 from tcod.map import compute_fov
 
 import exceptions
-from input_handlers import MainGameEventHandler
 from message_log import MessageLog
 from render_functions import render_bar, render_names_at_mouse_location
 
 if TYPE_CHECKING:
     from entity import Actor
     from game_map import GameMap
-    from input_handlers import EventHandler
 
 
 class Engine:
     game_map: GameMap
 
     def __init__(self, player: Actor):
-        self._event_handler: EventHandler = MainGameEventHandler(self)
-        self.previous_event_handler = None
         self.message_log = MessageLog()
         self.mouse_location = (0, 0)
         self.player = player
-
-    @property
-    def event_handler(self) -> EventHandler:
-        return self._event_handler
-
-    @event_handler.setter
-    def event_handler(self, value: EventHandler) -> None:
-        self.previous_event_handler = self._event_handler
-        self._event_handler = value
 
     def handle_enemy_turns(self) -> None:
         for entity in set(self.game_map.actors) - {self.player}:

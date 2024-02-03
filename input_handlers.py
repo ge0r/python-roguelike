@@ -486,4 +486,4 @@ class GameOverEventHandler(EventHandler):
         if event.sym == tcod.event.KeySym.ESCAPE:
             self.on_quit()
         elif event.sym == tcod.event.KeySym.v:
-            self.engine.event_handler = HistoryViewer(self.engine)
+            return HistoryViewer(self.engine)

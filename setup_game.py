@@ -35,9 +35,6 @@ def new_game() -> Engine:
 
     engine.game_world = GameWorld(
         engine=engine,
-        max_rooms=max_rooms,
-        room_min_size=room_min_size,
-        room_max_size=room_max_size,
         map_width=map_width,
         map_height=map_height,
     )

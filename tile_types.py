@@ -43,6 +43,12 @@ floor = new_tile(
     dark=(ord("."), (100, 100, 100), (0, 0, 0)),
     light=(ord("."), (200, 200, 200), (0, 0, 0)),
 )
+grass = new_tile(
+    walkable=True,
+    transparent=True,
+    dark=(ord(","), (100, 100, 100), (0, 0, 0)),
+    light=(ord(","), (0, 150, 0), (0, 0, 0)),
+)
 wall = new_tile(
     walkable=False,
     transparent=False,
